@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button testButton;
+    private Button ;
     private TextView textView;
 
     @Override

@@ -13,20 +13,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Puzzle Hub"
         android:textColor="#000000"
         android:textSize="40sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/gobang"
         android:layout_width="250dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="8dp"
 
-        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A81E"
         android:shadowDx="5"
@@ -35,17 +44,21 @@
         android:text="GoBang"
         android:textColor="#0F0602"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/connect"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.312"
-        tools:layout_editor_absoluteX="80dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/connect"
         android:layout_width="250dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A81E"
         android:shadowDx="5"
@@ -54,13 +67,20 @@
         android:text="connect"
         android:textColor="#0F0602"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/twozerofoureight"
-        tools:layout_editor_absoluteX="80dp" />/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gobang" />/>
 
     <Button
         android:id="@+id/shikaku"
         android:layout_width="250dp"
         android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A81E"
         android:shadowDx="5"
@@ -69,14 +89,20 @@
         android:text="shikaku"
         android:textColor="#0F0602"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="562dp" /> />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twozerofoureight" /> />
 
     <Button
         android:id="@+id/twozerofoureight"
         android:layout_width="250dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A81E"
         android:shadowDx="5"
@@ -85,7 +111,9 @@
         android:text="2048"
         android:textColor="#0F0602"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/shikaku"
-        tools:layout_editor_absoluteX="80dp" /> />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.572"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/connect" /> />
 
 </android.support.constraint.ConstraintLayout>

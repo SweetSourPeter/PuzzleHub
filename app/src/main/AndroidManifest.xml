@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".shikaku">
+        <activity android:name=".shikaku"/>
         <activity android:name=".connect" />
         <activity android:name=".gobang" />
         <activity android:name=".twozerofoureight"

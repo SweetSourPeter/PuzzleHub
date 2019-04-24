@@ -1,6 +1,7 @@
 package com.example.peterwang;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -23,8 +24,8 @@ public class twozerofoureightCard extends FrameLayout {
 
     public void setNum(int num) {
         this.num = num;
-
-        lable.setText("" + num);
+        String s = Integer.toString(num);
+        lable.setText(s);
     }
 
     public boolean equals(twozerofoureightCard obj) {

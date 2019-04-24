@@ -7,8 +7,8 @@
     android:background="@drawable/bg"
     tools:context=".MainActivity">
 
-    <com.example.peterwang.gobang
-        android:id="@+id/id_PuzzleHub"
+    <com.example.peterwang.gobangPanel
+        android:id="@+id/id_gobang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"

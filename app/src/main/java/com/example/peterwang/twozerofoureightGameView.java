@@ -27,6 +27,9 @@ public class twozerofoureightGameView extends GridLayout {
     }
 
     private void initGameView() {
+        setColumnCount(4);
+        setBackgroundColor(0xffbbada0);
+
         setOnTouchListener(new OnTouchListener() {
             private float startX, startY, offsetX, offsetY;
 

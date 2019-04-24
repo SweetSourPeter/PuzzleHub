@@ -80,7 +80,7 @@ public class twozerofoureightGameView extends GridLayout {
 
     //add card
     private void addCards(int cardWidth, int cardHeight) {
-//
+
         twozerofoureightCard c;
 
         for (int y = 0; y < 4; y++) {

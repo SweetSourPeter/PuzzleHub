@@ -28,8 +28,8 @@ public class twozerofoureightCard extends FrameLayout {
 
     public void setNum(int number) {
         this.num = number;
-        String s = Integer.toString(num);
-        lable.setText(s);
+        //String s = Integer.toString(num);
+        lable.setText(num + "");
     }
 
     public boolean equals(twozerofoureightCard obj) {

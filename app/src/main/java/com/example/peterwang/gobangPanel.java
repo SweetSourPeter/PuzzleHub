@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.jar.Attributes;
-
+//
 public class gobangPanel extends View {
 
     private int mPanelWidth;

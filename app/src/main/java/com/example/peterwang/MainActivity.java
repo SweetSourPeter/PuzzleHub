@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //主界面的四个button
-        Button button1 = findViewById(R.id. gobang);
-        Button button2 = findViewById(R.id. connect);
-        Button button3 = findViewById(R.id.twozerofoureight);
-        Button button4 = findViewById(R.id. shikaku);
+        ImageButton button1 = findViewById(R.id. gobang);
+        ImageButton button2 = findViewById(R.id. connect);
+        ImageButton button3 = findViewById(R.id.twozerofoureight);
+        ImageButton button4 = findViewById(R.id. shikaku);
 
         //四个activity的开关
         button1.setOnClickListener(new View.OnClickListener() {

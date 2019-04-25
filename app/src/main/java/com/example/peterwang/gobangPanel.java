@@ -23,6 +23,7 @@ public class gobangPanel extends View {
     private float mLineHeight;
     private int MAX_LINE = 11;
     private int MAX_COUNT_IN_LINE = 5;
+    private int UNDO_COUNT = 0;
 
     private Paint mPaint = new Paint();
 
@@ -104,6 +105,13 @@ public class gobangPanel extends View {
             }
             invalidate();
             mIsWhite = !mIsWhite;
+            if (UNDO_COUNT < 3)
+                UNDO_COUNT++;
+            if (!mIsWhite && mWhiteArray.size() == 61) {
+                String text = "Board is full";
+                Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+            }
+
         }
         return true;
     }
@@ -277,6 +285,41 @@ public class gobangPanel extends View {
             canvas.drawLine(startX, y, endX, y, mPaint);
             canvas.drawLine(y, startX, y, endX, mPaint);
         }
+    }
+    public void restart() {
+        mWhiteArray.clear();
+        mBlackArray.clear();
+        mIsGameOver = false;
+        mIsWhiteWinner = false;
+        invalidate();
+    }
+
+    public void retract() {
+        if (mIsGameOver) return;
+        Point lastPoint;
+
+        if (mWhiteArray.isEmpty()) {
+            String text = "No piece on board";
+            Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (UNDO_COUNT == 0) {
+            String text = "You have used up your chance";
+            Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (mIsWhite) {
+            lastPoint = mBlackArray.get(mBlackArray.size() - 1);
+            mBlackArray.remove(lastPoint);
+        } else {
+            lastPoint = mWhiteArray.get(mWhiteArray.size() - 1);
+            mWhiteArray.remove(lastPoint);
+        }
+        mIsWhite = !mIsWhite;
+        UNDO_COUNT--;
+        invalidate();
     }
 
     private static final String INSTANCE = "instance";

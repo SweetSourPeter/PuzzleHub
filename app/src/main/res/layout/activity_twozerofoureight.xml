@@ -2,6 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:clickable="true"
+    android:focusable="true"
+
+
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".twozerofoureight">
@@ -16,10 +21,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+
                 android:text="@string/score" />
 
             <TextView
                 android:id="@+id/tcScore"
+                android:clickable="true"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -27,7 +36,11 @@
 
     <com.example.peterwang.twozerofoureightGameView
         android:layout_width="fill_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_height="0dp"
+        android:descendantFocusability="beforeDescendants"
         android:layout_weight="1"
         android:id="@+id/gameView">
 

@@ -17,7 +17,9 @@
                         <category android:name="android.intent.category.LAUNCHER"/>
                 </intent-filter>
             </activity>
-        <activity android:name=".shikaku" />
+        <activity android:name=".shikaku"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait"/>
         <activity android:name=".connect" />
         <activity android:name=".gobang" />
         <activity

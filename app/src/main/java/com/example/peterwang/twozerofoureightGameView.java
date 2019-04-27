@@ -337,7 +337,7 @@ public class twozerofoureightGameView extends GridLayout {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 if (cardsMap[x][y].getNum() == 0 ||
-                        (x > 1 && cardsMap[x][y].equals(cardsMap[x - 1][y])) ||
+                        (x > 0 && cardsMap[x][y].equals(cardsMap[x - 1][y])) ||
                         (x < 3 && cardsMap[x][y].equals(cardsMap[x + 1][y])) ||
                         (y > 0 && cardsMap[x][y].equals(cardsMap[x][y-1])) ||
                         (y < 3 && cardsMap[x][y].equals(cardsMap[x][y+1]))  ){

@@ -129,7 +129,7 @@ public class twozerofoureightGameView extends GridLayout {
     //game starts
     private void startGame () {
         //twozerofoureight.getTwozerofoureight().clearScore();
-
+        System.out.println("game Starts");
         //clean the game
         for (int i =0; i <4; i++) {
             for(int j = 0; j < 4; j++) {
@@ -208,9 +208,11 @@ public class twozerofoureightGameView extends GridLayout {
             }
         }
         if (merge) {
+            System.out.println("left merge called");
             addRandomNum();
-            checkComplete();
+            //checkComplete();
         }
+        checkComplete();
     }
     
     private void swipeRight() {
@@ -245,11 +247,13 @@ public class twozerofoureightGameView extends GridLayout {
                     }
                 }
             }
-            if (merge) {
-                addRandomNum();
-                checkComplete();
-            }
         }
+        if (merge) {
+            System.out.println("right merge called");
+            addRandomNum();
+            //checkComplete();
+        }
+        checkComplete();
     }
     
     private void swipeUp () {
@@ -287,9 +291,9 @@ public class twozerofoureightGameView extends GridLayout {
         }
         if (merge) {
             addRandomNum();
-            checkComplete();
+            //checkComplete();
         }
-
+        checkComplete();
     }
 
     private void swipeDown () {
@@ -327,11 +331,13 @@ public class twozerofoureightGameView extends GridLayout {
         }
         if (merge) {
             addRandomNum();
-            checkComplete();
+            //checkComplete();
         }
+        checkComplete();
     }
 
     private void checkComplete() {
+        System.out.println("check complete invoked");
         boolean complete = true;
         All:
         for (int y = 0; y < 4; y++) {
@@ -341,6 +347,7 @@ public class twozerofoureightGameView extends GridLayout {
                         (x < 3 && cardsMap[x][y].equals(cardsMap[x + 1][y])) ||
                         (y > 0 && cardsMap[x][y].equals(cardsMap[x][y-1])) ||
                         (y < 3 && cardsMap[x][y].equals(cardsMap[x][y+1]))  ){
+                    System.out.println("complete invoked");
                     complete = false;
                     break All;
                 }
@@ -349,7 +356,7 @@ public class twozerofoureightGameView extends GridLayout {
         }
 
         if(complete) {
-            new AlertDialog.Builder(getContext()).setTitle("You").setMessage("Fucking loser");
+            new AlertDialog.Builder(getContext()).setTitle("You").setMessage(" loser");
         }
     }
 

@@ -15,7 +15,7 @@
         android:id = "@+id/text_view_p1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play 1:0"
+        android:text="Player 1:0"
         android:textSize="30sp"/>
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_p1"
-            android:text="Play 2:0"
+            android:text="Player 2:0"
             android:textSize="30sp"/>
         <Button
             android:id="@+id/button_reset"
@@ -122,3 +122,4 @@
     </LinearLayout>
 
 </LinearLayout>
+

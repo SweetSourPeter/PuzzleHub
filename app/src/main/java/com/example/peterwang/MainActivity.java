@@ -13,18 +13,19 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //主界面的四个button
+        //four button on main page
         ImageButton button1 = findViewById(R.id. gobang);
         ImageButton button2 = findViewById(R.id. connect);
         ImageButton button3 = findViewById(R.id.twozerofoureight);
         ImageButton button4 = findViewById(R.id. shikaku);
 
-        //四个activity的开关
+        //four activity switch
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

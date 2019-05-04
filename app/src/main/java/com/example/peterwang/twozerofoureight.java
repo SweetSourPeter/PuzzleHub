@@ -57,6 +57,7 @@ public class twozerofoureight extends AppCompatActivity {
             SharedPreferences.Editor editor = bestScore.edit();
             editor.putInt("savedBest", score);
             editor.commit();
+            ((TextView) findViewById(R.id.tcScore)).setTextColor(0xffED6E15);
         }
     }
 

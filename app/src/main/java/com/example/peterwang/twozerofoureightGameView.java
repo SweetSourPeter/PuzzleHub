@@ -44,6 +44,9 @@ public class twozerofoureightGameView extends GridLayout {
         initGameView();
     }*/
 
+
+
+
     private void initGameView() {
         setColumnCount(4);
         setBackgroundColor(0xffbbada0);
@@ -356,6 +359,7 @@ public class twozerofoureightGameView extends GridLayout {
         }
 
         if(complete) {
+
             new AlertDialog.Builder(getContext()).setTitle("You").setMessage(" loser");
         }
     }

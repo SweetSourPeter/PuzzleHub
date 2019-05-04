@@ -1,6 +1,7 @@
 package com.example.peterwang;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -46,11 +47,12 @@ public class twozerofoureightGameView extends GridLayout {
 
 
 
-
     private void initGameView() {
         setColumnCount(4);
         setBackgroundColor(0xffbbada0);
         addCards(getCardsWidth(), getCardsWidth());
+
+
 
         startGame();
 
@@ -339,6 +341,11 @@ public class twozerofoureightGameView extends GridLayout {
         checkComplete();
     }
 
+
+
+
+
+
     private void checkComplete() {
         System.out.println("check complete invoked");
         boolean complete = true;
@@ -359,8 +366,9 @@ public class twozerofoureightGameView extends GridLayout {
         }
 
         if(complete) {
-
-            new AlertDialog.Builder(getContext()).setTitle("You").setMessage(" loser");
+            System.out.println("complete");
+            twozerofoureight.getTwozerofoureight().ShowPopUp();
+            //new AlertDialog.Builder(getContext()).setTitle("You").setMessage(" loser");
         }
     }
 

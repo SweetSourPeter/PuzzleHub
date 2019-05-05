@@ -10,4 +10,7 @@
     <color name="white">#FFFFFF</color>
     <color name="twozerofoureightBack">#FFF0D7</color>
     <color name="popBackground">#ECE9DB</color>
+    <color name="blue">#36B9E6</color>
+    <color name="grey">#ABB2B9</color>
+
 </resources>

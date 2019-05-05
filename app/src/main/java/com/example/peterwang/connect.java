@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class connect extends AppCompatActivity implements View.OnClickListener{
 
+    View view;
     private Button[][] buttons = new Button[3][3];
     private boolean player1Turn = true;
     private int roundCount;
@@ -18,11 +19,13 @@ public class connect extends AppCompatActivity implements View.OnClickListener{
     private TextView textViewPlayer2;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connect);
-
+        view = this.getWindow().getDecorView();
+        view.setBackgroundResource(R.color.grey);
         textViewPlayer1 = findViewById(R.id.text_view_p1);
         textViewPlayer2 = findViewById(R.id.text_view_p2);
 

@@ -16,7 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player 1:0"
+        android:textColor="#FDFEFE"
         android:textSize="30sp"/>
+
 
         <TextView
             android:id = "@+id/text_view_p2"
@@ -24,17 +26,27 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_p1"
             android:text="Player 2:0"
+            android:textColor="#FDFEFE"
             android:textSize="30sp"/>
+
         <Button
             android:id="@+id/button_reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="124dp"
+            android:layout_height="66dp"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="33dp"
-            android:text="reset"
-            android:layout_marginRight="33dp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="9dp"
+
+            android:background="#17202A"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="RESET"
+
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
     </RelativeLayout>
 
 
@@ -48,8 +60,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="60sp"
-             />
+            android:background="#17202A"
+            android:textColor="#FDFEFE"
+            android:textSize="60sp" />
         <Button
             android:id="@+id/button_01"
             android:layout_width="0dp"
@@ -63,6 +76,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="60sp"
+            android:background="#17202A"
+            android:textColor="#FDFEFE"
              />
     </LinearLayout>
     <LinearLayout
@@ -83,6 +98,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="60sp"
+            android:background="#17202A"
+            android:textColor="#FDFEFE"
             />
         <Button
             android:id="@+id/button_12"
@@ -104,6 +121,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="60sp"
+            android:background="#17202A"
+            android:textColor="#FDFEFE"
              />
         <Button
             android:id="@+id/button_21"
@@ -118,6 +137,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="60sp"
+            android:background="#17202A"
+            android:textColor="#FDFEFE"
              />
     </LinearLayout>
 

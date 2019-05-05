@@ -22,15 +22,18 @@ import java.io.IOException;
 
 public class shikaku extends Activity {
 
+    // gameview
     BreakoutView breakoutView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         breakoutView = new BreakoutView(this);
         setContentView(breakoutView);
 
     }
+
 
     class BreakoutView extends SurfaceView implements Runnable {
 
@@ -40,82 +43,76 @@ public class shikaku extends Activity {
         boolean paused = true;
         Canvas canvas;
         Paint paint;
-
         long fps;
         private long timeThisFrame;
-
-        //set screen spec
         int screenX;
         int screenY;
-
-        //set objects
+        // create paddle
         Paddle paddle;
+        // create ball
         Ball ball;
 
-        //set bricks
+        // Max Bricks
         Brick[] bricks = new Brick[200];
         int numBricks = 0;
-
-        //set stats data
+        // Score
         int score = 0;
+        // Lives
         int lives = 3;
 
-        //game view
         public BreakoutView(Context context) {
+
             super(context);
             ourHolder = getHolder();
             paint = new Paint();
-
             Display display = getWindowManager().getDefaultDisplay();
             Point size = new Point();
             display.getSize(size);
-
             screenX = size.x;
             screenY = size.y;
             paddle = new Paddle(screenX, screenY);
-
+            // Create a ball
             ball = new Ball();
+
             createBricksAndRestart();
 
         }
 
-        //restart
         public void createBricksAndRestart() {
-            //reset objects
-            ball.reset(screenX, screenY);
-            paddle.reset(screenX);
 
-            //reset brick
+            // Put the ball back to the start
+            ball.reset(screenX, screenY);
+
             int brickWidth = screenX / 8;
             int brickHeight = screenY / 10;
 
-            //create bricks
+            // Build a wall of bricks
             numBricks = 0;
             for (int column = 0; column < 8; column++) {
-
                 for (int row = 0; row < 3; row++) {
                     bricks[numBricks] = new Brick(row, column, brickWidth, brickHeight);
                     numBricks++;
                 }
             }
-
-            //reset stats
+            // if game over reset scores and lives
             if (lives == 0) {
                 score = 0;
                 lives = 3;
             }
         }
 
-        //state detection and time the frame
         @Override
         public void run() {
             while (playing) {
+                // Time the frame
                 long startFrameTime = System.currentTimeMillis();
+                // Update the frame
                 if (!paused) {
                     update();
                 }
+                // Draw the frame
                 draw();
-
+                // Calculate the fps
                 timeThisFrame = System.currentTimeMillis() - startFrameTime;
                 if (timeThisFrame >= 1) {
                     fps = 1000 / timeThisFrame;
@@ -125,46 +122,42 @@ public class shikaku extends Activity {
 
         }
 
-        //basic running part
         public void update() {
 
             paddle.update(fps, screenX);
+
             ball.update(fps);
 
-            //when ball hit brick
             for (int i = 0; i < numBricks; i++) {
                 if (bricks[i].getVisibility()) {
                     if (RectF.intersects(bricks[i].getRect(), ball.getRect())) {
                         bricks[i].setInvisible();
                         ball.reverseYVelocity();
                         score = score + 10;
-
                     }
                 }
             }
 
-            //bounce back
             if (RectF.intersects(paddle.getRect(), ball.getRect())) {
                 ball.setRandomXVelocity();
                 ball.reverseYVelocity();
                 ball.clearObstacleY(paddle.getRect().top - 2);
-
             }
-            // Bounce back if hit bottom
+
             if (ball.getRect().bottom > screenY) {
                 ball.reverseYVelocity();
                 ball.clearObstacleY(screenY - 2);
 
-                // Lose a life
+                // Deduct one life
                 lives--;
 
-                //game over
                 if (lives == 0) {
                     paused = true;
+                    createBricksAndRestart();
                 }
             }
 
-            // bounce back if hit top
+            // Bounce back from top
             if (ball.getRect().top < 0)
 
             {
@@ -173,13 +166,12 @@ public class shikaku extends Activity {
 
             }
 
-            // If the ball hits left wall bounce
+            // bounce back from the wall
             if (ball.getRect().left < 0)
 
             {
                 ball.reverseXVelocity();
                 ball.clearObstacleX(2);
-
             }
 
             // If the ball hits right wall bounce
@@ -187,7 +179,6 @@ public class shikaku extends Activity {
 
                 ball.reverseXVelocity();
                 ball.clearObstacleX(screenX - 22);
-
             }
 
             // Pause if cleared screen
@@ -200,7 +191,6 @@ public class shikaku extends Activity {
 
         }
 
-        // Draw the newly updated scene
         public void draw() {
 
             if (ourHolder.getSurface().isValid()) {
@@ -210,33 +200,25 @@ public class shikaku extends Activity {
                 canvas.drawRect(paddle.getRect(), paint);
                 canvas.drawRect(ball.getRect(), paint);
                 paint.setColor(Color.argb(255, 249, 129, 0));
-
                 for (int i = 0; i < numBricks; i++) {
                     if (bricks[i].getVisibility()) {
                         canvas.drawRect(bricks[i].getRect(), paint);
                     }
                 }
-
                 paint.setColor(Color.argb(255, 255, 255, 255));
                 paint.setTextSize(40);
                 canvas.drawText("Score: " + score + "   Lives: " + lives, 10, 50, paint);
-
                 if (score == numBricks * 10) {
                     paint.setTextSize(90);
                     canvas.drawText("YOU HAVE WON!", 10, screenY / 2, paint);
                 }
-
-                // Has the player lost?
                 if (lives <= 0) {
                     paint.setTextSize(90);
                     canvas.drawText("YOU HAVE LOST!", 10, screenY / 2, paint);
-                    canvas.drawText("Touch screen to restart", 20, screenY/2-90, paint);
                 }
-
                 ourHolder.unlockCanvasAndPost(canvas);
             }
         }
-
         public void pause() {
             playing = false;
             try {
@@ -252,51 +234,39 @@ public class shikaku extends Activity {
             gameThread.start();
         }
 
-
-
-
-
         @Override
         public boolean onTouchEvent(MotionEvent motionEvent) {
-                    switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
-
-                        case MotionEvent.ACTION_DOWN:
-                            paused = false;
-
-
-
-                                if ((motionEvent.getX()>screenX/2)){
-                                    if(paddle.getRX()<screenX)
-                                        paddle.setMovementState(paddle.RIGHT);
-                                    else
-                                        paddle.setMovementState(paddle.STOPPED);
-                                }
-
-                                else if ((motionEvent.getX()<screenX/2)){
-                                    if(paddle.getX()>0)
-                                        paddle.setMovementState(paddle.LEFT);
-                                    else
-                                        paddle.setMovementState(paddle.STOPPED);
-
-                                }
+            switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+                case MotionEvent.ACTION_DOWN:
+                    paused = false;
 
 
 
-
-                            break;
-
-                        // Player has removed finger from screen
-                        case MotionEvent.ACTION_UP:
-
+                    if ((motionEvent.getX()>screenX/2)){
+                        if(paddle.getRX()<screenX)
+                            paddle.setMovementState(paddle.RIGHT);
+                        else
                             paddle.setMovementState(paddle.STOPPED);
-                            break;
                     }
 
+                    else if ((motionEvent.getX()<screenX/2)){
+                        if(paddle.getX()>0)
+                            paddle.setMovementState(paddle.LEFT);
+                        else
+                            paddle.setMovementState(paddle.STOPPED);
+
+                    }
+
+                    break;
+
+                case MotionEvent.ACTION_UP:
+
+                    paddle.setMovementState(paddle.STOPPED);
+                    break;
+            }
+
             return true;
-
         }
-
-
 
     }
 
@@ -310,6 +280,7 @@ public class shikaku extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+
         breakoutView.pause();
     }
 

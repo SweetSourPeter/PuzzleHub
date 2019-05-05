@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player 1:0"
-        android:textColor="#17202A"
+        android:textColor="#FDFEFE"
         android:textSize="30sp"/>
 
 
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_p1"
             android:text="Player 2:0"
-            android:textColor="#17202A"
+            android:textColor="#FDFEFE"
             android:textSize="30sp"/>
 
         <Button

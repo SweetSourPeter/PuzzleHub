@@ -21,7 +21,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait"/>
         <activity android:name=".connect" />
-        <activity android:name=".gobang" />
+        <activity android:name=".gobang.gobang" />
         <activity
             android:name=".twozerofoureight"
             android:screenOrientation="portrait" />
@@ -32,6 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".gobang.gobangpvp"/>
+        <activity android:name=".gobang.gobangai"/>
     </application>
 
 </manifest>

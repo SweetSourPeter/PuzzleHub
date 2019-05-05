@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
+
+import com.example.peterwang.gobang.gobang;
 
 public class MainActivity extends AppCompatActivity {
     //time for welcome page
 
-    private TextView textView;
 
 
     @Override
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ImageButton button4 = findViewById(R.id. shikaku);
 
         //four activity switch
-        button1.setOnClickListener(new View.OnClickListener() {
+            button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, gobang.class);

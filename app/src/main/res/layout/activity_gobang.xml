@@ -4,67 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F7B500"
-    tools:context=".MainActivity">
+    android:background="#BE9B6D"
+    android:orientation="vertical"
+    tools:context=".gobang.gobang">
 
-    <com.example.peterwang.gobangPanel
-        android:id="@+id/id_gobang"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginRight="14dp"
-        android:background="@drawable/board"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/Replay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="75dp"
-        android:background="@drawable/button"
-        android:text="Replay"
-        android:textColor="#ffffff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/Undo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:background="@drawable/button"
-        android:text="Undo"
-        android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title"
+    <ImageButton
+        android:id="@+id/ai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="gobang"
-        android:textColor="#ffffff"
-        android:textSize="35sp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/buttonshape"
+        android:src="@drawable/aibutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="141dp"
+        android:background="@drawable/buttonshape"
+        android:src="@drawable/friendsbutton"
+        app:layout_constraintStart_toStartOf="@+id/ai"
+        app:layout_constraintTop_toTopOf="@+id/ai" />
 
 </android.support.constraint.ConstraintLayout>
